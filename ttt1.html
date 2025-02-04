@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <title>TTT1 - Shaka Clark</title>
+    <style type="text/css">
+        body {
+            font-family: 'Lucida Sans', sans-serif;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        /* make line height same height of box to make text look centered */
+        .box {
+            border: 1px solid #000;
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            font-size: 48px;
+            line-height: 100px;
+            text-align: center;
+        }
+
+        /* decrease margin so box row height doesnt increase on hover */
+        .box:hover {
+            border: 2px solid #77DD76;
+            margin: 4px;
+            font-size: 56px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="box">x</div>
+        <div class="box"></div>
+        <div class="box">o</div>
+    </div>
+    <div class="row">
+        <div class="box">x</div>
+        <div class="box">o</div>
+        <div class="box"></div>
+    </div>
+    <div class="row">
+        <div class="box">o</div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>
