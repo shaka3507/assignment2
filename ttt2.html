@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<head>
+    <title>TTT2 - Shaka Clark</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Kanit:ital,wght@0,300;0,800;1,400&family=Oswald:wght@200..700&family=Roboto&display=swap"
+        rel="stylesheet">
+    <style type="text/css">
+        body {
+            font-family: "Oswald", serif;
+        }
+        .square {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            font-size: 36px;
+            line-height: 100px;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .gameboard {
+            width: 300px;
+            display: table;
+        }
+
+        .container-turn {
+            display: flex;
+
+            >div {
+                margin: 10px;
+                border: 1px solid black;
+                border-radius: 5px;
+                width: 200px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 18px;
+                text-align: center;
+            }
+        }
+        .result {
+            margin: 20px 0;
+            width: 200px;
+            height: 50px;
+            border: 4px dotted lightskyblue;
+            border-radius: 5px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .container-header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-header">
+    <h1>Tic Tac Toe</h1>
+    <div class="result"></div>
+    </div>
+    <div class="gameboard">
+        <script>
+            const NUM_SQUARES = 9;
+            for (i = 0; i < NUM_SQUARES; i++) {
+                id = "sq" + i;
+                document.write("<div class='square' id='" + id + "'></div>");
+            }
+        </script>
+        <script>
+            // x placements - 0, 3
+            // o placements -  2, 4, 6
+            const xPlacements = [0, 3]
+            const yPlacements = [2, 4, 6]
+            const el = document.getElementById('sq0')
+            // place the x's
+            for (i = 0; i < xPlacements.length; i++) {
+                let el = document.getElementById(`sq${xPlacements[i]}`)
+                el.innerText += 'X'
+            }
+            // place the o's
+            for (i = 0; i < yPlacements.length; i++) {
+                let el = document.getElementById(`sq${yPlacements[i]}`)
+                el.innerText += 'O'
+            }
+        </script>
+    </div>
+    <div class="container-turn">
+        <div class="disabled">opponent's turn</div>
+        <div>my turn</div>
+    </div>
+</body>
+
+</html>
