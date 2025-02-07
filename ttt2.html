@@ -10,20 +10,24 @@
     <style type="text/css">
         body {
             font-family: "Oswald", serif;
+            font-weight: 500;
         }
+
         .square {
             width: 100px;
             height: 100px;
             border: 1px solid black;
-            font-size: 36px;
+            font-size: 48px;
             line-height: 100px;
             text-align: center;
             margin: 5px;
         }
 
         .gameboard {
-            width: 300px;
-            display: table;
+            margin: 20px auto;
+            width: 350px; /* to allow enough width to make a 3x3 grid */
+            display: flex;
+            flex-wrap: wrap;
         }
 
         .container-turn {
@@ -40,9 +44,9 @@
                 text-align: center;
             }
         }
+
         .result {
             margin: 20px 0;
-            width: 200px;
             height: 50px;
             border: 4px dotted lightskyblue;
             border-radius: 5px;
@@ -50,9 +54,31 @@
             text-align: center;
         }
 
+        .turn-indicator {
+            border: 4px solid black;
+            margin: 20px 0;
+            height: 50px;
+            background-color: black;
+            border-radius: 5px;
+            line-height: 50px;
+            text-align: center;
+            color: white;
+        }
+
+
+
         .container-header {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
+            > div {
+                width: 200px;
+            }
+        }
+
+        .square:hover {
+            border: 2px solid #77DD76;
+            margin: 4px;
+            font-size: 56px;
         }
 
     </style>
@@ -60,8 +86,9 @@
 
 <body>
     <div class="container-header">
-    <h1>Tic Tac Toe</h1>
-    <div class="result"></div>
+        <div><h1>Tic Tac Toe</h1></div>
+        <div class="turn-indicator">placeholder for X or O turn</div>
+        <div class="result">placeholder for win condition</div>
     </div>
     <div class="gameboard">
         <script>
@@ -72,10 +99,10 @@
             }
         </script>
         <script>
-            // x placements - 0, 3
-            // o placements -  2, 4, 6
+            // "X" ID Placements - 0, 3
+            // "O" ID Placements -  2, 4, 6
             const xPlacements = [0, 3]
-            const yPlacements = [2, 4, 6]
+            const oPlacements = [2, 4, 6]
             const el = document.getElementById('sq0')
             // place the x's
             for (i = 0; i < xPlacements.length; i++) {
@@ -83,15 +110,11 @@
                 el.innerText += 'X'
             }
             // place the o's
-            for (i = 0; i < yPlacements.length; i++) {
-                let el = document.getElementById(`sq${yPlacements[i]}`)
+            for (i = 0; i < oPlacements.length; i++) {
+                let el = document.getElementById(`sq${oPlacements[i]}`)
                 el.innerText += 'O'
             }
         </script>
-    </div>
-    <div class="container-turn">
-        <div class="disabled">opponent's turn</div>
-        <div>my turn</div>
     </div>
 </body>
 
